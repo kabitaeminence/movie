@@ -1,0 +1,10 @@
+{ SMTP: 
+	{
+		host : "smtp.gmail.com",               // smtp server hostname
+		port : "587",                     // smtp server port
+		ssl: false,
+		use_authentication : "true",        // auth login is supported; anything else is no auth
+		user : "username@your_domain.com",        // username
+		pass : "your Gmail password"         // password
+	}
+}

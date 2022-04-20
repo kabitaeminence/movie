@@ -1,0 +1,19 @@
+{	"exports": "signup",
+	"signature": [
+		{ 
+			"name": "send",
+			"synopsis": "Sends signup data",
+			"description": "",
+			"verb": "POST",
+			"parameter": {"name": "formData", "required":"true", "type":"multi"},
+			"options": 
+				[{"option": "subject", "required":"false", "default":"Welcome", "description":"the subject of the email"},
+				 {"option": "template", "required":"false", "short":"t", "default":"email.txt", "description":"the name of the template file"}
+				]
+		}
+	], 
+	"path": "signup",
+	"environment": [
+		{"parameter": "EMAIL_SENDER", "long":"sender", "short":"s", "required":"true", "description":"sender email address"}
+	]
+}

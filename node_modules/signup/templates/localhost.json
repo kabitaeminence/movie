@@ -1,0 +1,7 @@
+{ SMTP: 
+	{
+		host : "localhost",               // smtp server hostname
+		port : "25",                     // smtp server port
+		use_authentication : "false",        
+	}
+}

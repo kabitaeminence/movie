@@ -1,0 +1,10 @@
+{ SMTP: 
+	{
+		host : "email-smtp.us-east-1.amazonaws.com",               // smtp server hostname
+		port : "465",                     // smtp server port
+		ssl: false,
+		use_authentication : "true",        // auth login is supported; anything else is no auth
+		user : "ABC123",        // your amazon-generated SMTP username
+		pass : "DEF43578t6kjha"         // your amazon-generated SMTP password
+	}
+}
