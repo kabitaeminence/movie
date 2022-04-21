@@ -218,5 +218,6 @@ module.exports = {
   filterdata,
   get_Userid_showid_movieId,
   count_booking_movie_by_user,
-  update_movie_time
+  update_movie_time,
+  update_movie_time_equal_end_time
 };
