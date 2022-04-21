@@ -157,6 +157,29 @@ const count_booking_movie_by_user = async (req, res) => {
   }
 };
 
+const update_movie_time = async (req, res) => {
+  try {
+    // if (!req.params.id) {
+    //   return res.send({ message: "parameters are missing" });
+    // }
+    console.log({ movieId: req.params.movieId });
+    const body = req.body;
+
+    const data = await showData.updateMany(
+      { movieId: req.params.movieId },
+      { $set: { start_time: body.start_time, end_Time: body.end_Time } }
+    );
+    if (data) {
+      console.log(data);
+      return res.status(200).json({ data: data });
+    } else {
+      return res.status(400).send(error);
+    }
+  } catch (error) {
+    return res.status(400).send(error);
+  }
+};
+
 module.exports = {
   create,
   get,
