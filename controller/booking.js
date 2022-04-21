@@ -179,6 +179,36 @@ const update_movie_time = async (req, res) => {
     return res.status(400).send(error);
   }
 };
+const update_movie_time_equal_end_time = async (req, res) => {
+  console.log("mmmmmmmm");
+  try {
+    const query = await showData.find({
+      movieId: req.params.movieId,
+      end_Time: req.body.end_Time,
+    });
+
+    console.log(query[0]._id);
+
+    const map = await Promise.all(
+      query.map(async (data) => {
+        console.log(data._id, "data");
+        const update = { start_time: req.body.update_Time };
+        console.log(update, "update");
+
+        const s = await showData.updateOne({ _id: data._id }, update);
+        if (s) {
+          console.log(s);
+          return res.status(200).json({ data: s });
+        } else {
+          console.log("errrrrrrrrrrr");
+        }
+      })
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 
 module.exports = {
   create,
