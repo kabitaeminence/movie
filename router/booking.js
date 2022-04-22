@@ -8,7 +8,7 @@ router.get(
 );
 
 const router = express.Router();
-router.get("/delet_show_given_by_user_m)ovie_name",bookingdata.delet_show_given_by_user_movie_name)
+router.get("/delet_show_given_by_user_movie_name",bookingdata.delet_show_given_by_user_movie_name)
 router.get("/who_all_booked_movie_find_username",bookingdata.who_all_booked_movie_find_username)
 router.get("/who_all_booked_movie_find_username",bookingdata.who_all_booked_movie_find_username)
 router.put("/update_movie_time_equal_end_time/:movieId",bookingdata.update_movie_time_equal_end_time)
