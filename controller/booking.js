@@ -255,6 +255,39 @@ const who_all_booked_movie_find_username = async (req, res) => {
 };
 
 
+const find_movie_name_by_user_name = async (req, res) => {
+  try {
+    const firstName = req.body.firstName;
+    const data = await userData.find({ firstName: firstName });
+    console.log(data[0].firstName);
+    console.log(data[0]._id);
+
+    const book = await bookingData.find({ userId: data[0]._id });
+    console.log(book[0].userId, "uuuuuuuu");
+
+    const show = await bookingData.find({ showId: book[0].showId });
+    console.log(show[0].showId, "showiiiiiiiiiiii");
+
+    const showdd = await showData.find({ _id: show[0].showId });
+    console.log(showdd[0]._id, "oooooooooooooo");
+
+    const moviedd = await showData.find({ movieId: showdd[0].movieId });
+    console.log(moviedd[0].movieId, "mmmmmmmmmm");
+    // console.log(moviedd)
+
+    const moviname = await movie.find({ _id: moviedd[0].movieId });
+
+    console.log(moviname[0]._id);
+    console.log(moviname[0].movieName)
+
+    return res.status(200).json({ data: data });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+
 module.exports = {
   create,
   get,
