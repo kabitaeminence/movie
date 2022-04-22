@@ -287,6 +287,26 @@ const find_movie_name_by_user_name = async (req, res) => {
 };
 
 
+const delet_show_given_by_user_movie_name = async (req, res) => {
+  try {
+    const movieName = req.body.movieName;
+    const movieId = await movie.findOne({ movieName: movieName });
+
+    console.log(movieId.movieName);
+    console.log(movieId._id);
+
+    const show = await showData.deleteOne({
+      movieId: movieId._id,
+      start_time: "7:00pm",
+    });
+
+    return res.status(200).json({ data: movieId });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
 
 module.exports = {
   create,
