@@ -208,6 +208,51 @@ const update_movie_time_equal_end_time = async (req, res) => {
     console.log(error);
   }
 };
+const who_all_booked_movie_find_username = async (req, res) => {
+  try {
+
+    const movieName = req.body.movieName;
+    const movieId = await movie.findOne({ movieName: movieName });
+
+    console.log(movieId.movieName);
+    // console.log(movieId._id, "oooooooooooooooo");
+
+    const show = await showData.find({ movieId: movieId._id });
+    console.log(show[0].movieId, "movieeeeeeeeeee");
+    // console.log(show[0]._id);
+
+    const book = await bookingData.find({ showId: show[0]._id }).count();
+    console.log(book, "c","showiddd");
+    const book1 = await bookingData.find({ showId: show[0]._id });
+
+    // console.log(book1, "showidddddd");
+    const idd = Promise.all (book1.map(async (data)=>{
+      console.log(data.userId)
+      const data1 = await  userData.find({_id:data.userId})
+      // console.log(data1,"pppppp")
+      for (let i=0;i<data1.length;i++){
+        console.log(data1[0].firstName, "  ","user_name")
+
+      }
+
+    }))
+    console.log(book1[0].userId, "urrrrrrrrr");
+    // const map = async (book1.map(()=>{
+
+    const book2 = await bookingData.find({ _id: book1[0]._id });
+    console.log(book2[0]._id, "bookingiddddddddddd");
+
+    const user = await userData.find({ _id: book1[0].userId });
+
+//     console.log(user[0]._id, "userrrrrrrrrrrr");
+//     console.log(user[0].firstName);
+    return res.status(200).json({ data: movieName });
+
+    // }))
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 
 module.exports = {
@@ -219,5 +264,6 @@ module.exports = {
   get_Userid_showid_movieId,
   count_booking_movie_by_user,
   update_movie_time,
-  update_movie_time_equal_end_time
+  update_movie_time_equal_end_time,
+  who_all_booked_movie_find_username
 };
