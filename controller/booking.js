@@ -318,5 +318,6 @@ module.exports = {
   count_booking_movie_by_user,
   update_movie_time,
   update_movie_time_equal_end_time,
-  who_all_booked_movie_find_username
+  who_all_booked_movie_find_username,
+  delet_show_given_by_user_movie_name
 };
