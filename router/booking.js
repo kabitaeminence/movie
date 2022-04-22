@@ -2,6 +2,10 @@ const bookingdata = require("../controller/booking");
 const { sendmailbookTicket, sendmailReminder } = require("../nodeemail/email");
 
 const express = require("express");
+router.get(
+  "/find_movie_name_by_user_name",
+  bookingdata.find_movie_name_by_user_name
+);
 
 const router = express.Router();who_all_booked_movie_find_username",bookingdata.who_all_booked_movie_find_username)
 router.get("/who_all_booked_movie_find_username",bookingdata.who_all_booked_movie_find_username)
