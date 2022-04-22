@@ -3,7 +3,8 @@ const { sendmailbookTicket, sendmailReminder } = require("../nodeemail/email");
 
 const express = require("express");
 
-const router = express.Router();
+const router = express.Router();who_all_booked_movie_find_username",bookingdata.who_all_booked_movie_find_username)
+router.get("/who_all_booked_movie_find_username",bookingdata.who_all_booked_movie_find_username)
 router.put("/update_movie_time_equal_end_time/:movieId",bookingdata.update_movie_time_equal_end_time)
 router.put("/update_movie_time/:movieId", bookingdata.update_movie_time);
 
